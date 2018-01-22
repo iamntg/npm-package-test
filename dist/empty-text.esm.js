@@ -34,9 +34,14 @@ var EmptyTextDirective = /** @class */ (function () {
         this.empservice = empservice;
     }
     EmptyTextDirective.prototype.ngAfterViewInit = function () {
-        var content = this.el.nativeElement.innerHTML;
+        var content = this.el.nativeElement.value;
+        console.warn('its inside directive - ntg');
         if (!content) {
             this.el.nativeElement.innerHTML = this.empservice.get();
+            this.el.nativeElement.value = this.empservice.get();
+            console.info('this.empservice.get() ', this.empservice.get());
+            console.info('this.el ', this.el);
+            console.info('this.el.nativeElement ', this.el.nativeElement);
         }
     };
     EmptyTextDirective = __decorate([
